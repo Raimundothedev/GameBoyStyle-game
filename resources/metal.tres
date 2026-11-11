@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="_TileData" format=3 uid="uid://dbwwgrid7yfwj"]
+
+[ext_resource type="Script" uid="uid://e8oc78jjspaq" path="res://scripts/tiledata.gd" id="1_n20x6"]
+
+[resource]
+script = ExtResource("1_n20x6")
+tile_name = "Metal"
+breakble = true
+metadata/_custom_type_script = "uid://e8oc78jjspaq"

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bd8jwsnq31jhx"]
+
+[ext_resource type="Script" uid="uid://dtw627pxkoadb" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[node name="HUD" type="Control" unique_id=116560410]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ahhtf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1872745266]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Health_Label" type="Label" parent="VBoxContainer" unique_id=1570580420]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=698071215]
+layout_mode = 2
+
+[node name="Mana_Label" type="Label" parent="VBoxContainer" unique_id=1569540103]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mana"
+
+[node name="ProgressBar2" type="ProgressBar" parent="VBoxContainer" unique_id=1470421610]
+layout_mode = 2

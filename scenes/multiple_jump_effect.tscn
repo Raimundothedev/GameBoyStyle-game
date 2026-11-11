@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://78htowjoinpy"]
+
+[ext_resource type="Texture2D" uid="uid://2itro3gf3y01" path="res://assets/images/vfx/particles/particle1.png" id="1_jxf2u"]
+[ext_resource type="Script" uid="uid://qvhbjvsdre7j" path="res://scripts/multiple_jump_effect.gd" id="1_p7riv"]
+
+[node name="MultipleJumpEffect" type="Node2D" unique_id=323180578]
+scale = Vector2(2, 2)
+script = ExtResource("1_p7riv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=556265988]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_jxf2u")

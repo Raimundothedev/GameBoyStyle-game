@@ -1,0 +1,58 @@
+[gd_scene format=4 uid="uid://c8qqstjjpdiqi"]
+
+[ext_resource type="Texture2D" uid="uid://cq42dx14hb03" path="res://assets/images/tilemap/gameboyTILESET.png" id="1_olmbx"]
+[ext_resource type="Texture2D" uid="uid://dm3ex5k18dqeo" path="res://assets/images/background/lixo.png" id="1_w3gk0"]
+[ext_resource type="PackedScene" uid="uid://dc4mgoixlcge" path="res://scenes/player.tscn" id="2_ypoqj"]
+
+[sub_resource type="GDScript" id="GDScript_w3gk0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ypoqj"]
+texture = ExtResource("1_olmbx")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_0 = true
+1:0/0 = 0
+1:0/0/custom_data_0 = true
+2:0/0 = 0
+2:0/0/custom_data_0 = true
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/custom_data_0 = true
+2:1/0 = 0
+2:1/0/custom_data_0 = true
+5:1/0 = 0
+6:1/0 = 0
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qfjwl"]
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "breakable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_ypoqj")
+
+[node name="LevelRoot" type="Node2D" unique_id=200602663]
+script = SubResource("GDScript_w3gk0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2072429828]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_w3gk0")
+stretch_mode = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1083721601]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAAAAsAAAAAAAEAAAABAAsAAAAAAAEAAAADAAoAAAAAAAEAAAAEAAoAAAAAAAEAAAAFAAoAAAAAAAEAAAADAAwAAAAAAAEAAAACAAwAAAAAAAEAAAABAAwAAAAAAAEAAAAAAAwAAAAAAAEAAAD//wwAAAAAAAEAAAAFAA0AAAAGAAAAAAAGAA0AAAAGAAAAAAAAAA0AAAAGAAAAAAABAA0AAAAGAAAAAAACAA0AAAAGAAAAAAADAA0AAAAGAAAAAAAEAA0AAAAGAAAAAAAHAA0AAAAGAAAAAAAIAA0AAAAGAAAAAAAJAA0AAAAGAAAAAAAKAA0AAAAGAAAAAAALAA0AAAAGAAAAAAAMAA0AAAAGAAAAAAANAA0AAAAFAAIAAAAOAA0AAAAFAAIAAAAPAA0AAAAFAAIAAAAQAA0AAAAGAAAAAAARAA0AAAAGAAAAAAASAA0AAAAGAAAAAAATAA0AAAAGAAAAAAAUAA0AAAAGAAAAAAAVAA0AAAAGAAAAAAAWAA0AAAAGAAAAAAAXAA0AAAAGAAAAAAAYAA0AAAAGAAAAAAAZAA0AAAAGAAAAAAAaAA0AAAAGAAAAAAAAAA4AAAAFAAIAAAABAA4AAAAHAAIAAAACAA4AAAAFAAIAAAADAA4AAAAFAAIAAAAEAA4AAAAFAAIAAAAFAA4AAAAFAAIAAAAGAA4AAAAHAAIAAAAHAA4AAAAFAAIAAAAMAA4AAAAFAAIAAAALAA4AAAAHAAIAAAAKAA4AAAAFAAIAAAAJAA4AAAAFAAIAAAAIAA4AAAAFAAIAAAANAA4AAAAFAAIAAAAOAA4AAAAFAAIAAAAPAA4AAAAFAAIAAAAQAA4AAAAHAAIAAAARAA4AAAAFAAIAAAASAA4AAAAFAAIAAAATAA4AAAAFAAIAAAAUAA4AAAAFAAIAAAAVAA4AAAAFAAIAAAAWAA4AAAAFAAIAAAAXAA4AAAAGAAIAAAAYAA4AAAAFAAIAAAAZAA4AAAAFAAIAAAAaAA4AAAAFAAIAAAANAAsAAAAGAAAAAAAOAAsAAAAGAAAAAAAPAAsAAAAGAAAAAAANAAwAAAAGAAIAAAAPAAwAAAAFAAIAAAAOAAwAAAAFAAIAAAAMAAwAAAAAAAAAAAAVAAwAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAAWAAwAAAAAAAAAAAAVAAoAAAAAAAAAAAAWAAoAAAAAAAAAAAAWAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_qfjwl")
+
+[node name="Player" parent="." unique_id=1870519369 instance=ExtResource("2_ypoqj")]
+position = Vector2(28, 592)

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dc7pk4s005ntp"]
+
+[ext_resource type="Script" uid="uid://dwkwvl6uq2gs" path="res://scripts/Spells/pickaxe_spell.gd" id="1_aeavv"]
+[ext_resource type="Texture2D" uid="uid://dnxt58caysn2g" path="res://assets/images/vfx/attack/pickaxespell-Sheet.png" id="1_iodte"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeavv"]
+atlas = ExtResource("1_iodte")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5jy7"]
+atlas = ExtResource("1_iodte")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq5pf"]
+atlas = ExtResource("1_iodte")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56f12"]
+atlas = ExtResource("1_iodte")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8tew5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeavv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5jy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq5pf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56f12")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yn3bx"]
+size = Vector2(16, 16)
+
+[node name="pickaxe_spell" type="Area2D" unique_id=922009097]
+script = ExtResource("1_aeavv")
+dmg_mult = 1.05
+spell_type = "projectile"
+break_level = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=891500487]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8tew5")
+autoplay = "default"
+frame_progress = 0.4648795
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=981129085]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_yn3bx")

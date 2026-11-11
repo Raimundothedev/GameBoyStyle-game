@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://br2vr5s3gab65"]
+
+[ext_resource type="Script" uid="uid://dl7gr41llnsul" path="res://scripts/Blocks/metalblock.gd" id="1_giubl"]
+[ext_resource type="Texture2D" uid="uid://dkgvmx6jseijc" path="res://assets/images/blocks/metalblock-Sheet.png" id="1_wv7cx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giubl"]
+atlas = ExtResource("1_wv7cx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jd7w"]
+atlas = ExtResource("1_wv7cx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cntrl"]
+atlas = ExtResource("1_wv7cx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irvtj"]
+atlas = ExtResource("1_wv7cx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow8de"]
+atlas = ExtResource("1_wv7cx")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mwmw"]
+atlas = ExtResource("1_wv7cx")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wro84"]
+atlas = ExtResource("1_wv7cx")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgft6"]
+atlas = ExtResource("1_wv7cx")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cirlu"]
+atlas = ExtResource("1_wv7cx")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8tew5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giubl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jd7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cntrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irvtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow8de")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mwmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wro84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgft6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cirlu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tew5"]
+size = Vector2(48, 48)
+
+[node name="MetalBlock" type="StaticBody2D" unique_id=1042992676]
+script = ExtResource("1_giubl")
+breakable = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1751090106]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_8tew5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=215506455]
+shape = SubResource("RectangleShape2D_8tew5")

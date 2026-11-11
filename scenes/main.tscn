@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://lrt5p10417xf"]
+
+[ext_resource type="PackedScene" uid="uid://c8qqstjjpdiqi" path="res://scenes/level_root.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://bd8jwsnq31jhx" path="res://scenes/hud.tscn" id="2_sugp2"]
+
+[node name="Main" type="Node2D" unique_id=1886072381]
+
+[node name="LevelRoot" parent="." unique_id=200602663 instance=ExtResource("2_0wfyh")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1464311535]
+
+[node name="HUD" parent="CanvasLayer" unique_id=116560410 instance=ExtResource("2_sugp2")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[editable path="LevelRoot"]
+[editable path="CanvasLayer/HUD"]
