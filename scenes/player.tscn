@@ -72,6 +72,7 @@ size = Vector2(36, 42)
 
 [node name="Player" type="CharacterBody2D" unique_id=1870519369 groups=["player"]]
 script = ExtResource("1_qlg0r")
+max_jumps = 5
 jump_velocity = -350.0
 equipped_spell = "fireball"
 
