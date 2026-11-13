@@ -10,6 +10,7 @@ class_name Enemy
 @export var dash_speed: float = 500.0
 @export var dash_duration: float = 0.25
 
+var start_position: Vector2
 
 @onready var animated_sprite_2d = get_node_or_null("AnimatedSprite2D")
 
@@ -19,6 +20,7 @@ var player: CharacterBody2D
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")	
 	hitbox.body_entered.connect(_on_body_entered)
+	start_position = global_position
 	for area in [$Range, $AttackRange]:
 		area.body_entered.connect(_on_range_changed.bind(area, true))
 		area.body_exited.connect(_on_range_changed.bind(area, false))
@@ -41,21 +43,21 @@ var direction: Vector2
 func chase_player(delta: float) -> void:
 	if player == null:
 		return
-		
-	if not player_on_range:
-		if not player_attack:
-			return
 			
 	if is_dashing or player_attack:
 		return
 			
 	#if player_on_atkrange:
 		#attack_anim()
-
-	direction = (player.global_position - global_position).normalized()
+	if player_on_range:
+		direction = (player.global_position - global_position).normalized()
+	else:
+		if global_position.distance_to(start_position) < 5.0:
+			velocity.x = 0
+			return
+		direction = (start_position - global_position).normalized()
 
 	velocity.x = direction.x * speed
-	
 	
 func handle_jump():
 	if is_on_floor():
@@ -127,7 +129,7 @@ var can_attack: bool = true
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.take_damage(dmg, self)
+		body.stats.take_damage(dmg, self)
 		print("awdad")
 
 func handle_animation():

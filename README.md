@@ -8,14 +8,18 @@ All assets in this project were drawn by me.
 
 The game is still a *work in progress*, and many things may change in the future.
 
-# Moviment
+## Moviment
 w - up
+
 a - left
+
 d - right
+
 spacebar - dash
 
-# Spells
+## Spells
 left click - attack
+
 f1 - switch magic
 
 ## Screenshot

@@ -44,7 +44,7 @@ size = Vector2(16, 16)
 
 [node name="pickaxe_spell" type="Area2D" unique_id=922009097]
 script = ExtResource("1_aeavv")
-dmg_mult = 1.05
+dmg_mult = 0.85
 spell_type = "projectile"
 break_level = 2
 

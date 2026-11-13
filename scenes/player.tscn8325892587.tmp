@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dc4mgoixlcge"]
+
+[ext_resource type="Texture2D" uid="uid://uecjjylygc0v" path="res://assets/images/player/magogameboyIDLE-Sheet.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://ckiccgg4sdcne" path="res://assets/images/player/magogameboyATTACKING-Sheet.png" id="1_hqtel"]
+[ext_resource type="Script" uid="uid://d0crg0gk6wskh" path="res://scripts/player.gd" id="1_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://bmvsnlbd7sw48" path="res://assets/images/player/magogameboyHIT-Sheet.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://c2cfewggfej7y" path="res://assets/images/player/magogameboyWALKING-Sheet.png" id="4_2hs0m"]
+[ext_resource type="Script" uid="uid://cxaocw3fbtsh0" path="res://scripts/player/player_moviment.gd" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://bwoh7qe73vs2x" path="res://scripts/player/player_combat.gd" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://br3elxv5tblxd" path="res://scripts/player/player_stats.gd" id="8_smehm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("1_hqtel")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("4_2hs0m")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
+atlas = ExtResource("4_2hs0m")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8tew5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}],
+"loop": 1,
+"name": &"Attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sweqy")
+}],
+"loop": 1,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw050")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b26j0")
+}],
+"loop": 1,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tew5"]
+size = Vector2(36, 42)
+
+[node name="Player" type="CharacterBody2D" unique_id=1870519369 groups=["player"]]
+script = ExtResource("1_qlg0r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=496308630]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_8tew5")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912643557]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_8tew5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=875166482]
+position = Vector2(0, -100)
+
+[node name="Moviment" type="Node" parent="." unique_id=1355530757]
+script = ExtResource("6_tuyoq")
+
+[node name="Combat" type="Node" parent="." unique_id=807459996]
+script = ExtResource("7_fjrip")
+
+[node name="Stats" type="Node" parent="." unique_id=1160536799]
+script = ExtResource("8_smehm")
+equipped_spell = "fireball"

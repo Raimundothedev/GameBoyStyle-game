@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://d0crg0gk6wskh" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://bmvsnlbd7sw48" path="res://assets/images/player/magogameboyHIT-Sheet.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://c2cfewggfej7y" path="res://assets/images/player/magogameboyWALKING-Sheet.png" id="4_2hs0m"]
+[ext_resource type="Script" uid="uid://cxaocw3fbtsh0" path="res://scripts/player/player_moviment.gd" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://bwoh7qe73vs2x" path="res://scripts/player/player_combat.gd" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://br3elxv5tblxd" path="res://scripts/player/player_stats.gd" id="8_smehm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
 atlas = ExtResource("1_hqtel")
@@ -72,9 +75,6 @@ size = Vector2(36, 42)
 
 [node name="Player" type="CharacterBody2D" unique_id=1870519369 groups=["player"]]
 script = ExtResource("1_qlg0r")
-max_jumps = 5
-jump_velocity = -350.0
-equipped_spell = "fireball"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=496308630]
 texture_filter = 1
@@ -89,3 +89,13 @@ shape = SubResource("RectangleShape2D_8tew5")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=875166482]
 position = Vector2(0, -100)
+
+[node name="Movement" type="Node" parent="." unique_id=1355530757]
+script = ExtResource("6_tuyoq")
+
+[node name="Combat" type="Node" parent="." unique_id=807459996]
+script = ExtResource("7_fjrip")
+
+[node name="Stats" type="Node" parent="." unique_id=1160536799]
+script = ExtResource("8_smehm")
+equipped_spell = "fireball"

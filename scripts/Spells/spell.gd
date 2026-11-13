@@ -1,5 +1,6 @@
 extends Area2D
 class_name Spell
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var effect = preload("res://scenes/multiple_jump_effect.tscn")
 @onready var tile_map: TileMap = $TileMapLayer
@@ -16,7 +17,7 @@ var damage: float
 
 func setup(p: CharacterBody2D, m: int):
 	player = p
-	damage = player.dmg * dmg_mult
+	damage = player.stats.dmg * dmg_mult
 	visible = false	
 	has_mana(m)
 	
